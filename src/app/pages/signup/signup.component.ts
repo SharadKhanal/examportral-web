@@ -14,8 +14,8 @@ export class SignupComponent implements OnInit {
   constructor( private userService: UserServiceService, private toastrService:ToastrService) { }
 user= {
     username: '',
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     phone: '',
     password: ''
