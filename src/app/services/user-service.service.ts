@@ -10,7 +10,7 @@ export class UserServiceService {
   constructor(private http: HttpClient) {
    }
   addUser(user:any){
-    return this.http.post(this.baseUrl.concat("/user"),user);
+    return this.http.post(this.baseUrl.concat("/user/examportal"),user);
   }
 }
 
