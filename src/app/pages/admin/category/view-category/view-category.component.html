@@ -5,11 +5,29 @@
     <mat-icon mat-list-icon>category</mat-icon>
       <div mat-line>{{category.title}}</div>
       <div mat-line>{{category.description}}</div>
+      <div class="">
+      <button mat-raised-button color="warn" (click)="deleteCategory(delete)"><i class="material-icons">delete</i></button>
+        <ng-template #delete>
+          <div class=" container">
+            <div class="row">
+              <div  class="col-md-6">
+                <h1>Are You Sure to delete this category!</h1>
+                <div class="text-center">
+                  <button mat-raised-button color="accent" (click)="onDelete(category.cid)">Yes</button>
+                  <!--          <button mat-raised-button color="warn" class="mrl-5">No</button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </ng-template>
+      </div>
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
 <br>
   <div class="container text-center mt20">
-      <button mat-raised-button color="accent">Add new Category</button>
+      <button routerLink="/admin-dashboard/add-cartegory" mat-raised-button color="accent">Add new Category</button>
   </div>
 </mat-card>
+

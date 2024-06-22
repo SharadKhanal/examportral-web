@@ -8,6 +8,7 @@ import {UserDashboardComponent} from "./pages/user/user-dashboard/user-dashboard
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {WelcomeComponent} from "./pages/admin/welcome/welcome.component";
 import {ViewCategoryComponent} from "./pages/admin/category/view-category/view-category.component";
+import {AddCategoryComponent} from "./pages/admin/category/add-category/add-category.component";
 
 const routes: Routes = [
   {path: '',
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path:'category',
         component: ViewCategoryComponent
+      },
+      {
+        path:'add-cartegory',
+        component: AddCategoryComponent
       }
     ]
   },

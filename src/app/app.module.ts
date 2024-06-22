@@ -25,6 +25,7 @@ import {SideBarComponent} from "./pages/admin/side-bar/side-bar.component";
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddCategoryComponent } from './pages/admin/category/add-category/add-category.component';
 import { ViewCategoryComponent } from './pages/admin/category/view-category/view-category.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ViewCategoryComponent } from './pages/admin/category/view-category/view
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
