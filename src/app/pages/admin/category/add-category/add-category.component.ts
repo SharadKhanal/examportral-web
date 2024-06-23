@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryService} from "../../../../services/category.service";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-category',
@@ -9,7 +10,8 @@ import Swal from "sweetalert2";
 })
 export class AddCategoryComponent implements OnInit {
 
-  constructor( private categoryService: CategoryService) { }
+  constructor( private categoryService: CategoryService,
+               private router: Router) { }
  category={
     title:'',
    description:''
@@ -25,6 +27,7 @@ export class AddCategoryComponent implements OnInit {
     }
     this.categoryService.addNewCategory(this.category).subscribe((res:any)=>{
       Swal.fire("Success","Category Added Successfully!")
+      this.router.navigate(['/admin-dashboard/category'])
     },(error)=>{
       Swal.fire("Failed","Unable to Add New Category!!")
     })

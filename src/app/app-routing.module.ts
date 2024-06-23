@@ -9,6 +9,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {WelcomeComponent} from "./pages/admin/welcome/welcome.component";
 import {ViewCategoryComponent} from "./pages/admin/category/view-category/view-category.component";
 import {AddCategoryComponent} from "./pages/admin/category/add-category/add-category.component";
+import {ViewQuizzesComponent} from "./pages/admin/view-quizzes/view-quizzes.component";
 
 const routes: Routes = [
   {path: '',
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path:'add-cartegory',
         component: AddCategoryComponent
+      },
+      {
+        path:'view-quizzes',
+        component: ViewQuizzesComponent
       }
     ]
   },

@@ -26,6 +26,7 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddCategoryComponent } from './pages/admin/category/add-category/add-category.component';
 import { ViewCategoryComponent } from './pages/admin/category/view-category/view-category.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SideBarComponent,
     WelcomeComponent,
     AddCategoryComponent,
-    ViewCategoryComponent
+    ViewCategoryComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,

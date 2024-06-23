@@ -1,0 +1,22 @@
+<mat-card class="mrb mrt" *ngFor=" let quizz of  quizzes" class="mrt">
+<mat-card-header>
+  <div mat-card-avatar class = "tp-header-image"></div>
+  <mat-card-title>{{quizz.title}}</mat-card-title>
+  <mat-card-subtitle>{{quizz.category.title}}</mat-card-subtitle>-
+</mat-card-header>
+  <mat-card-content>
+    {{quizz.description}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="accent">Questions</button>
+    <button mat-stroked-button color="accent"> Max marks :{{quizz.maxMarks}}</button>
+    <button mat-stroked-button color="accent">NoOfQuestions  to be displayed:{{quizz.numberOfQuestions}}</button>
+    <button mat-flat-button color="accent">Update</button>
+    <button mat-flat-button color="accent" class="mrl">Attempts</button>
+  </mat-card-actions>
+</mat-card>
+
+<div class="container  text-center mrt">
+  <button mat-raised-button color="accent">Add New Quizz</button>
+</div>
+
