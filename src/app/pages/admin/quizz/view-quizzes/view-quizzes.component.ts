@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-view-quizzes',
@@ -31,9 +32,11 @@ export class ViewQuizzesComponent implements OnInit {
 
     }
   ]
-  constructor() { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  navigateToAddQuiz(){
+    this.router.navigate(['/admin-dashboard/add-quizz'])
+  }
 }
