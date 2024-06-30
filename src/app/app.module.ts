@@ -28,6 +28,8 @@ import { ViewCategoryComponent } from './pages/admin/category/view-category/view
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewQuizzesComponent } from './pages/admin/quizz/view-quizzes/view-quizzes.component';
 import { AddQuizzComponent } from './pages/admin/quizz/add-quizz/add-quizz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { AddQuizzComponent } from './pages/admin/quizz/add-quizz/add-quizz.compo
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    NgbModule
+    NgbModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
