@@ -6,13 +6,13 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class QuizService {
- baseUrlAPI:string = environment.baseUrl+ "/quiz"
+ baseUrlAPI:string = environment.baseUrl;
   constructor(private http:HttpClient) { }
 
   addQuiz(quiz:any){
-   this.http.post(this.baseUrlAPI.concat("/add"),quiz);
+  return  this.http.post(this.baseUrlAPI.concat("/quiz/add"),quiz);
   }
   getAllQuiz(){
-   this.http.get(this.baseUrlAPI.concat("/all"))
+  return  this.http.get(this.baseUrlAPI.concat("/quiz/all"))
   }
 }

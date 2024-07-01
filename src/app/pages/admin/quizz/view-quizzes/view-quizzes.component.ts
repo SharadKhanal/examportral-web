@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {QuizService} from "../../../../services/quiz.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-view-quizzes',
@@ -7,7 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./view-quizzes.component.scss']
 })
 export class ViewQuizzesComponent implements OnInit {
-  quizzes=[
+
+  quizzes:any;
+  quizze=[
     {
       qId:34,
       title:'basic java',
@@ -32,9 +36,19 @@ export class ViewQuizzesComponent implements OnInit {
 
     }
   ]
-  constructor( private router:Router) { }
+  constructor( private router:Router,
+               private quizService: QuizService) { }
 
   ngOnInit(): void {
+    this.getAllQuiz();
+  }
+
+  getAllQuiz(){
+    this.quizService.getAllQuiz().subscribe((res:any)=>{
+      this.quizzes = res;
+    },error => {
+      Swal.fire("Error!","Unable to load quiz data!!");
+    })
   }
   navigateToAddQuiz(){
     this.router.navigate(['/admin-dashboard/add-quizz'])

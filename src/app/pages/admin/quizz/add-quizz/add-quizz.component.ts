@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoryService} from "../../../../services/category.service";
+import Swal from "sweetalert2";
+import {QuizService} from "../../../../services/quiz.service";
 
 @Component({
   selector: 'app-add-quizz',
@@ -6,30 +9,45 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-quizz.component.scss']
 })
 export class AddQuizzComponent implements OnInit {
- category=[
-   {
-     cid:2,
-     title:'programming'
-   },
-   {
-     cid:5,
-     title:'bd'
-   },
-   {
-     cid:9,
-     title:'abd'
-   },
-   {
-     cid:2,
-     title:'programming'
-   },{
-     cid:2,
-     title:'programming'
-   }
- ]
-  constructor() { }
+  category: any;
+  quizz={
+    title:'',
+    description: '',
+    maxMarks:'',
+    noOfQuestions:'',
+    active:true,
+    category:{
+      cid:''
+    }
+  };
+  constructor(
+    private categoryService: CategoryService,
+    private quizService: QuizService
+  ) { }
 
   ngOnInit(): void {
+   this.getAllCategory();
+  }
+
+  addQuiz(){
+
+    if(this.quizz.title.trim()== '' || this.quizz.title == ''){
+      Swal.fire("Quiz Title is Required!");
+      return;
+    }
+    this.quizService.addQuiz(this.quizz).subscribe((res:any)=>{
+      Swal.fire("Success","Successfully Added Quiz!")
+    },(error)=>{
+      Swal.fire("Failed!","Unable to Add Quiz!!")
+    })
+  }
+
+  getAllCategory(){
+   this.categoryService.getAllCategory().subscribe((res:any)=>{
+     this.category = res;
+   },error => {
+     Swal.fire("Error","Unable to fetch category!! ");
+   })
   }
 
 }

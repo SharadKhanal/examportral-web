@@ -2,43 +2,44 @@
   <h1> Add Quizz</h1>
   <mat-card-content>
     <div class="row col-sm-6 offset-1">
-      <form>
+      <form (ngSubmit)="addQuiz()">
 
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Title</mat-label>
-          <input autofocus matInput name="title" placeholder="Enter title" type="text">
+          <input  required [(ngModel)]="quizz.title" autofocus matInput name="title" placeholder="Enter title" type="text">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Description</mat-label>
-          <textarea autofocus matInput name="description" placeholder="Enter description" rows="10"
+          <textarea  required [(ngModel)]="quizz.description" autofocus matInput name="description" placeholder="Enter description" rows="10"
                     type="text"></textarea>
         </mat-form-field>
 
 
         <mat-form-field appearance="outline" class="w100">
           <mat-label>MaxMarks</mat-label>
-          <input autofocus matInput name="maxMarks" placeholder="Enter maxMarks" type="text">
+          <input  required [(ngModel)]="quizz.maxMarks" autofocus matInput name="maxMarks" placeholder="Enter maxMarks" type="text">
         </mat-form-field>
 
 
         <mat-form-field appearance="outline" class="w100">
           <mat-label>NoOfQuestions</mat-label>
-          <input autofocus matInput name="noOfQuestions" placeholder="Enter noOfQuestions" type="text">
+          <input required [(ngModel)]="quizz.noOfQuestions" autofocus matInput name="noOfQuestions" placeholder="Enter noOfQuestions" type="text">
         </mat-form-field>
 
         <section class="example-section">
           <mat-slide-toggle autofocus
-            [checked]="false"
+                            name="active"
+           [(ngModel)]="quizz.active"
             class="example-margin">
             Publish
           </mat-slide-toggle>
         </section>
         <mat-form-field class="w100 mrt">
           <mat-label>Select Category</mat-label>
-          <mat-select name="category" autofocus>
+          <mat-select name="category"  [(ngModel)]="quizz.category.cid" autofocus>
             <mat-option *ngFor="let c of category" [value]="c.cid">
-                    {{c.title}}
+                        {{c.title}}
             </mat-option>
           </mat-select>
         </mat-form-field>
