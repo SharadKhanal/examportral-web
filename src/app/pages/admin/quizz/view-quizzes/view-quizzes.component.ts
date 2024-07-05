@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {QuizService} from "../../../../services/quiz.service";
 import Swal from "sweetalert2";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-view-quizzes',
@@ -11,33 +12,9 @@ import Swal from "sweetalert2";
 export class ViewQuizzesComponent implements OnInit {
 
   quizzes:any;
-  quizze=[
-    {
-      qId:34,
-      title:'basic java',
-      description:'he meaning of SPAM is unsolicited usually commercial messages (such as emails, text messages, or Internet postings) sent to a large number of recipients or .',
-      maxMarks:'89',
-      numberOfQuestions:'60',
-      active:'',
-      category:{
-        title: 'programming'
-      }
-    },
-    {
-      qId:66,
-      title:'basic cc',
-      description:'he meaning of SPAM is unsolicited usually commercial messages (such as emails, text messages, or Internet postings) sent to a large number of recipients or .',
-      maxMarks:'89',
-      numberOfQuestions:'60',
-      active:'',
-      category:{
-        title: 'programming'
-      }
-
-    }
-  ]
   constructor( private router:Router,
-               private quizService: QuizService) { }
+               private quizService: QuizService,
+               private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getAllQuiz();
@@ -52,5 +29,27 @@ export class ViewQuizzesComponent implements OnInit {
   }
   navigateToAddQuiz(){
     this.router.navigate(['/admin-dashboard/add-quizz'])
+  }
+
+  deleteQuizz(template:any){
+      this.modalService.open(template);
+  }
+  onDelete(id:any){
+    Swal.fire({
+      icon:'info',
+      title:'Are you sure to delete!',
+      confirmButtonText: 'Delete',
+        showCancelButton:true,
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.quizService.deleteQuiz(id).subscribe((res:any)=>{
+          Swal.fire("Success",'Successfully Deleted the Quizz!!')
+          this.modalService.dismissAll();
+          this.getAllQuiz();
+        },error => {
+          Swal.fire("Failed","Unable to Delete Quiz!!");
+        })
+      }
+    })
   }
 }

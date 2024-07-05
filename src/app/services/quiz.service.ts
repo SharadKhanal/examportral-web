@@ -15,4 +15,7 @@ export class QuizService {
   getAllQuiz(){
   return  this.http.get(this.baseUrlAPI.concat("/quiz/all"))
   }
+  deleteQuiz(id:any){
+    return this.http.delete(this.baseUrlAPI.concat(`/quiz/delete/${id}`))
+  }
 }
