@@ -52,4 +52,12 @@ export class ViewQuizzesComponent implements OnInit {
       }
     })
   }
+
+  onEditQuiz(quizId:any){
+    this.router.navigate(['/admin-dashboard/edit-quizz'],{
+          queryParams:{
+            id: quizId
+          }
+    })
+  }
 }

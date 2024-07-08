@@ -18,4 +18,10 @@ export class QuizService {
   deleteQuiz(id:any){
     return this.http.delete(this.baseUrlAPI.concat(`/quiz/delete/${id}`))
   }
+
+  getQuizById(id:any){
+    return this.http.get(this.baseUrlAPI.concat(`/quiz/getQuizById/${id}`));
+  }
+
+
 }

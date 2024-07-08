@@ -11,7 +11,7 @@
     <button mat-flat-button color="accent">Questions</button>
     <button mat-stroked-button color="accent"> Max marks :{{quizz.maxMarks}}</button>
     <button mat-stroked-button color="accent">NoOfQuestions  to be displayed:{{quizz.noOfQuestions}}</button>
-    <button mat-flat-button color="accent">Update</button>
+    <button mat-flat-button color="accent"(click)="onEditQuiz(quizz.qid)">Update</button>
     <button mat-flat-button color="accent" class="mrl">Attempts</button>
     <button mat-raised-button color="warn" (click)="onDelete(quizz.qid)" ><i class="material-icons">delete</i></button>
     <ng-template #delete>
@@ -27,12 +27,9 @@
           </div>
         </div>
       </div>
-
     </ng-template>
-
   </mat-card-actions>
 </mat-card>
-
 <div class="container  text-center mrt">
   <button mat-raised-button color="accent" (click)="navigateToAddQuiz()">Add New Quizz</button>
 </div>
