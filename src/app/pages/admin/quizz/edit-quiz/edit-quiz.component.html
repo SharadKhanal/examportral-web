@@ -1,8 +1,8 @@
 <mat-card>
-  <h1> Edit Quizz</h1>
+  <h1> Update Quizz</h1>
   <mat-card-content>
     <div class="row col-sm-6 offset-1">
-      <form (ngSubmit)="editQuiz()">
+      <form *ngIf="quizz" (submit)="updateQuiz()">
 
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Title</mat-label>
@@ -11,7 +11,7 @@
 
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Description</mat-label>
-          <textarea  required [(ngModel)]="quizz.description" autofocus matInput name="description" placeholder="Enter description" rows="10"
+            <textarea  required [(ngModel)]="quizz.description" autofocus matInput name="description" placeholder="Enter description" rows="10"
                      type="text"></textarea>
         </mat-form-field>
 
@@ -44,7 +44,7 @@
           </mat-select>
         </mat-form-field>
         <div class="container text-center mt15">
-          <button mat-raised-button color="accent">Submit</button>
+          <button mat-raised-button color="accent">Update</button>
         </div>
       </form>
     </div>

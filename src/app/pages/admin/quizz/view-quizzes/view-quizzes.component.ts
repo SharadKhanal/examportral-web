@@ -60,4 +60,15 @@ export class ViewQuizzesComponent implements OnInit {
           }
     })
   }
+
+  addQuizQuestions(qid:any,qTitle:any){
+    console.log("qid",qid)
+    console.log("qTitle",qTitle)
+    this.router.navigate(['/admin-dashboard/view-quiz-questions'],{
+      queryParams:{
+        qId: qid,
+        qTitle: qTitle
+      }
+    })
+  }
 }

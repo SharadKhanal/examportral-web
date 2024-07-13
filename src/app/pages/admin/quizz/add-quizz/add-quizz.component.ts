@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CategoryService} from "../../../../services/category.service";
 import Swal from "sweetalert2";
 import {QuizService} from "../../../../services/quiz.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-quizz',
@@ -22,7 +23,8 @@ export class AddQuizzComponent implements OnInit {
   };
   constructor(
     private categoryService: CategoryService,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,15 +32,15 @@ export class AddQuizzComponent implements OnInit {
   }
 
   addQuiz(){
-
     if(this.quizz.title.trim()== '' || this.quizz.title == ''){
       Swal.fire("Quiz Title is Required!");
       return;
     }
     this.quizService.addQuiz(this.quizz).subscribe((res:any)=>{
-      Swal.fire("Success","Successfully Added Quiz!")
+      Swal.fire("Success","Successfully Added Quiz!");
+      this.router.navigate(['/admin-dashboard/view-quizzes']);
     },(error)=>{
-      Swal.fire("Failed!","Unable to Add Quiz!!")
+      Swal.fire("Failed!","Unable to Add Quiz!!");
     })
   }
 

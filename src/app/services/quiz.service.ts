@@ -22,6 +22,9 @@ export class QuizService {
   getQuizById(id:any){
     return this.http.get(this.baseUrlAPI.concat(`/quiz/getQuizById/${id}`));
   }
+  editQuiz(quiz:any){
+    return this.http.put(this.baseUrlAPI.concat('/quiz/update'),quiz);
+  }
 
 
 }

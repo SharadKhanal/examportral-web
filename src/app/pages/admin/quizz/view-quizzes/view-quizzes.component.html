@@ -8,7 +8,7 @@
     {{quizz.description}}
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="accent">Questions</button>
+    <button mat-flat-button color="accent" (click)="addQuizQuestions(quizz.qid,quizz.title)">Questions</button>
     <button mat-stroked-button color="accent"> Max marks :{{quizz.maxMarks}}</button>
     <button mat-stroked-button color="accent">NoOfQuestions  to be displayed:{{quizz.noOfQuestions}}</button>
     <button mat-flat-button color="accent"(click)="onEditQuiz(quizz.qid)">Update</button>
