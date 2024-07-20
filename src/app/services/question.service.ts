@@ -12,6 +12,6 @@ export class QuestionService {
   constructor(private http: HttpClient) { }
 
   getQuizQuestion(quizId:any){
-    return this.http.get(this.baseApiUrl.concat(`/question/quiz/${quizId}`));
+    return this.http.get(this.baseApiUrl.concat(`/question/quiz/all${quizId}`));
   }
 }

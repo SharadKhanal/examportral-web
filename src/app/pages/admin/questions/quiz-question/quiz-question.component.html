@@ -1,3 +1,43 @@
+<h1 class="mt10">Questions of {{quizTitle}}</h1>
+<div class="bootstrap-wrapper">
+  <div class="row">
+    <div class="col-md-12">
 
-  <h1 class="mt10">Questions of {{quizTitle}}</h1>
+      <mat-card *ngFor=" let q of questions; let i = index">
+        <mat-card-content>
+          <p>
+            <b>Q {{i + 1}})</b>
+            <span> Which is OOP language?</span>
+          </p>
 
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>1)</b>option1</p>
+              </div>
+              <div class="col-md-6">
+                <p><b>1)</b>option2</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>1)</b>option3</p>
+              </div>
+              <div class="col-md-6">
+                <p><b>1)</b>option4</p>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+            <p class="mt10">
+              <b>Correct ANswer:</b> ertt
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <div class="mt10 text-center">
+        <button (click)="onAddQuizQuestion()" color="primary" mat-raised-button size="medium">Add Question</button>
+      </div>
+    </div>
+  </div>
+</div>
