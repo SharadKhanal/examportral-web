@@ -22,6 +22,7 @@ export class ViewCategoryComponent implements OnInit {
     this.categoryService.getAllCategory().subscribe((res:any)=>{
       // Swal.fire('Loading!!');
       this.categories = res
+      console.log("categoty:",this.categories)
       this.categories.forEach((dd:any)=>{
         this.categoryId = dd.cid;
       })

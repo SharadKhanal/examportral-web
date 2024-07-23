@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ToastrModule} from "ngx-toastr";
 import {HttpClientModule} from "@angular/common/http";
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -71,7 +71,8 @@ import { AddQuizQuestionsComponent } from './pages/admin/questions/add-quiz-ques
     MatListModule,
     NgbModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

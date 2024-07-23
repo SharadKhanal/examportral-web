@@ -1,48 +1,55 @@
-<h1 class="mt10 text-center">Add Question on  {{quizTitle}}</h1>
+<h1 class="mt10 text-center">Add Question on  <strong>{{quizTitle}}</strong>  </h1>
 <mat-card class="text-center">
+  <form [formGroup]="addQuestionForm">
   <mat-card-content>
     <div class="row col-md-6 offset-1">
     <mat-form-field  appearance="outline" class="width w100">
       <mat-label>Content</mat-label>
-      <input name="content" autofocus matInput type="text" placeholder="Enter content !">
+      <input formControlName="content" autofocus matInput type="text" placeholder="Enter content !">
     </mat-form-field>
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Option1</mat-label>
-          <input name="option1" autofocus matInput type="text" placeholder="Enter option1 !">
+          <input  [(ngModel)]="option.option1" formControlName="option1" name=" option1" autofocus matInput type="text" placeholder="Enter option1 !">
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Option2</mat-label>
-          <input  name="option2" autofocus matInput type="text" placeholder="Enter option2 !">
+          <input  formControlName="option2"  [(ngModel)]="option.option2" name="option2" autofocus matInput type="text" placeholder="Enter option2 !">
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Option3</mat-label>
-          <input name="option3" autofocus matInput type="text" placeholder="Enter option3 !">
+          <input formControlName="option3" [(ngModel)]="option.option3" name="option3" autofocus matInput type="text" placeholder="Enter option3 !">
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline" class="w100">
           <mat-label>Option4</mat-label>
-          <input name="option4" autofocus matInput type="text" placeholder="Enter option4 !">
+          <input formControlName="option4" [(ngModel)]="option.option4" name="option4" autofocus matInput type="text" placeholder="Enter option4 !">
         </mat-form-field>
       </div>
       <mat-form-field appearance="outline" class=" width w100">
-        <mat-label>Answer</mat-label>
-        <input name="answer" autofocus matInput type="text" placeholder="Enter answer !">
+        <mat-label formControlName="answer">Select Answer</mat-label>
+        <mat-select  formControlName="answer">
+          <mat-option [value]="option.option1" *ngIf=option.option1>{{option.option1}}</mat-option>
+          <mat-option [value]="option.option2" *ngIf=option.option2>{{option.option2}}</mat-option>
+          <mat-option  [value]="option.option3" *ngIf="option.option3">{{option.option3}}</mat-option>
+          <mat-option [value]="option.option4" *ngIf="option.option4">{{option.option4}}</mat-option>
+        </mat-select>
       </mat-form-field>
 
 <!--      <mat-form-field appearance="outline" class=" width w100">-->
 <!--        <mat-label>Image</mat-label>-->
-<!--        <input name="image" autofocus    type="file" placeholder="Upload image!">-->
+<!--        <input formControlName="image" autofocus    type="file" placeholder="Upload image!">-->
 <!--      </mat-form-field>-->
     </div>
     <mat-divider></mat-divider>
     <div class="mt10 text-center">
-      <button mat-raised-button color="accent">Submit</button>
+      <button mat-raised-button color="accent" (click)="onSubmit(addQuestionForm.value)">Submit</button>
     </div>
   </mat-card-content>
+  </form>
 </mat-card>
