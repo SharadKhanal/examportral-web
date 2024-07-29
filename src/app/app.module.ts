@@ -33,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { EditQuizComponent } from './pages/admin/quizz/edit-quiz/edit-quiz.component';
 import { QuizQuestionComponent } from './pages/admin/questions/quiz-question/quiz-question.component';
 import { AddQuizQuestionsComponent } from './pages/admin/questions/add-quiz-questions/add-quiz-questions.component';
+import { EditQuestionComponent } from './pages/admin/questions/edit-question/edit-question.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AddQuizQuestionsComponent } from './pages/admin/questions/add-quiz-ques
     AddQuizzComponent,
     EditQuizComponent,
     QuizQuestionComponent,
-    AddQuizQuestionsComponent
+    AddQuizQuestionsComponent,
+    EditQuestionComponent
   ],
   imports: [
     BrowserModule,

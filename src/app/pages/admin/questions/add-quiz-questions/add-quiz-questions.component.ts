@@ -22,17 +22,6 @@ export class AddQuizQuestionsComponent implements OnInit {
     option3:'',
     option4:''
   }
-  // questions={
-  //   quiz:{
-  //
-  //   },
-  //   content:'',
-  //   option1:'',
-  //   option2:'',
-  //   option3:'',
-  //   option4:'',
-  //   image:'',
-  // }
   addQuestionForm: FormGroup= new FormGroup({});
   constructor( private router: Router,
                private activatedRoute: ActivatedRoute,
@@ -70,20 +59,19 @@ export class AddQuizQuestionsComponent implements OnInit {
     this.question.quiz = {
       qid: Number(this.quizId)
     }
-    console.log("question:",this.question);
 
-  //   if(value.content == null ){
-  // Swal.fire("Please insert the Question!");
-  // return;
-  //   }
-  //
-  //   this.questionService.addQuestionToQuiz(this.question).subscribe((res:any)=>{
-  //     Swal.fire("Success","Successfully added question to " + this.quizTitle);
-  //     this.addQuestionForm.reset();
-  //     this.router.navigate(['/admin-dashboard'])
-  //   },error => {
-  //     Swal.fire("Failed","Unable to add question to "+ this.quizTitle);
-  //   })
+    if (value.content == null) {
+      Swal.fire("Please insert the Question!");
+      return;
+    }
+
+    this.questionService.addQuestionToQuiz(this.question).subscribe((res: any) => {
+      Swal.fire("Success", "Successfully added question to " + this.quizTitle);
+      this.addQuestionForm.reset();
+      this.router.navigate(['/admin-dashboard'])
+    }, error => {
+      Swal.fire("Failed", "Unable to add question to " + this.quizTitle);
+    })
   }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {QuestionService} from "../../../../services/question.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-quiz-question',
@@ -26,7 +27,6 @@ export class QuizQuestionComponent implements OnInit {
 
   getAllQuestions(){
     this.questionService.getAllQuizQuestion(this.quizId).subscribe((res:any)=>{
-      console.log("questions:",res);
       this.questions= res;
     })
   }
@@ -38,6 +38,33 @@ export class QuizQuestionComponent implements OnInit {
         quizTitle:this.quizTitle
       }
     });
+  }
+
+  onDeleteQuestion(id:number){
+    Swal.fire({
+      icon:'info',
+      title:"Are you sure to delete",
+      confirmButtonText:'Delete',
+      showCancelButton:true
+    }).then((result:any)=>{
+      if(result.isConfirmed){
+        this.questionService.deleteQuestion(id).subscribe((res:any)=>{
+          this.getAllQuestions();
+          Swal.fire("Success","Successfully deleted the question!")
+        },error => {
+          Swal.fire("Failed","Unable to delete the question!!");
+        })
+      }
+    })
+  }
+
+  onUpdateQuestion(questionId:any){
+    this.router.navigate(['/admin-dashboard/edit-questions'],{
+      queryParams:{
+        questionId: questionId,
+        quizId: this.quizId
+      }
+    })
   }
 
 }

@@ -7,7 +7,7 @@
       </div>
 
       <mat-card *ngFor=" let q of questions; let i = index">
-        <mat-card-content>
+        <mat-card-content class="mb10">
           <p>
             <b>Q {{i + 1}})</b>
             <span>{{q?.content}}</span>
@@ -37,6 +37,11 @@
             </p>
           </div>
         </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" (click)="onUpdateQuestion(q?.qusId)"> Update</button>
+          <button mat-raised-button color="warn" (click)="onDeleteQuestion(q?.qusId)">Delete</button>
+        </mat-card-actions>
+        <br>
       </mat-card>
     </div>
   </div>
