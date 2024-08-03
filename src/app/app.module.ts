@@ -34,6 +34,9 @@ import { EditQuizComponent } from './pages/admin/quizz/edit-quiz/edit-quiz.compo
 import { QuizQuestionComponent } from './pages/admin/questions/quiz-question/quiz-question.component';
 import { AddQuizQuestionsComponent } from './pages/admin/questions/add-quiz-questions/add-quiz-questions.component';
 import { EditQuestionComponent } from './pages/admin/questions/edit-question/edit-question.component';
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import { SafePipe } from './core/pipe/safe.pipe';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 
 
 @NgModule({
@@ -56,7 +59,9 @@ import { EditQuestionComponent } from './pages/admin/questions/edit-question/edi
     EditQuizComponent,
     QuizQuestionComponent,
     AddQuizQuestionsComponent,
-    EditQuestionComponent
+    EditQuestionComponent,
+    SafePipe,
+    UserSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,8 @@ import { EditQuestionComponent } from './pages/admin/questions/edit-question/edi
     NgbModule,
     MatSlideToggleModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

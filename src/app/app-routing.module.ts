@@ -36,6 +36,11 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
+    path: 'user-dashboard',
+    component: UserDashboardComponent,
+    pathMatch: "full"
+  },
+  {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
     children: [

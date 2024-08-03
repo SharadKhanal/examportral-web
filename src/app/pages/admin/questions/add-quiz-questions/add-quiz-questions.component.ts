@@ -5,6 +5,7 @@ import {Question} from "../../../../core/model/question";
 import {QuestionService} from "../../../../services/question.service";
 import Swal from "sweetalert2";
 import {isEmpty} from "rxjs";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 @Component({
   selector: 'app-add-quiz-questions',
@@ -12,6 +13,7 @@ import {isEmpty} from "rxjs";
   styleUrls: ['./add-quiz-questions.component.scss']
 })
 export class AddQuizQuestionsComponent implements OnInit {
+  public Editor = ClassicEditor;
   quizTitle:any;
   quizId:any;
   question: Question = new Question();

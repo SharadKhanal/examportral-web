@@ -28,6 +28,7 @@ export class QuizQuestionComponent implements OnInit {
   getAllQuestions(){
     this.questionService.getAllQuizQuestion(this.quizId).subscribe((res:any)=>{
       this.questions= res;
+      console.log("questions:",this.questions)
     })
   }
 
