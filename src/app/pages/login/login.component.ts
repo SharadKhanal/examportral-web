@@ -44,15 +44,10 @@ export class LoginComponent implements OnInit {
      });
      return;
    }
-
    this.loginService.login(value).subscribe((res:any)=>{
      this.toastrService.success("Login Successfully!!")
-     console.log("tokan:",res.token);
      this.loginService.loginUser(res.token);
-     console.log("localstorage:",localStorage)
-
      this.loginService.currentUser().subscribe((user:any)=>{
-       console.log("current user:",user);
        this.loginService.setUser(user);
      })
    })
