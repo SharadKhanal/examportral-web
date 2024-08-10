@@ -37,6 +37,8 @@ import { EditQuestionComponent } from './pages/admin/questions/edit-question/edi
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import { SafePipe } from './core/pipe/safe.pipe';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { MatSnackBarModule} from "@angular/material/snack-bar";
+import {authInterceptorProviders} from "./core/interceptor/auth.interceptor";
 
 
 @NgModule({
@@ -80,9 +82,11 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
     MatSlideToggleModule,
     MatSelectModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    MatSnackBarModule,
+    ToastrModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

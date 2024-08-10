@@ -3,16 +3,36 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor, HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import {LoginService} from "../../services/login.service";
+const TOKEN_HEADER = 'Authorization';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  constructor( private loginService: LoginService) {}
 
-  constructor() {}
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    let authReq = request
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+    const token = localStorage.getItem("token");
+    console.log("token fron licakdrowa indee:", token)
+    if(token != null){
+      authReq = authReq.clone({
+      setHeaders : {Authorization:`Bearer ${token}`}
+      });
+    }
+    return next.handle(authReq);
   }
 }
+
+export const authInterceptorProviders = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  },
+]

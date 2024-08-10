@@ -9,9 +9,17 @@ export class UserServiceService {
     baseUrl:string = environment.baseUrl;
   constructor(private http: HttpClient) {
    }
-  addUser(user:any){
-    return this.http.post(this.baseUrl.concat("/user/examportal"),user);
+  register(user:any){
+    return this.http.post(this.baseUrl.concat("/auth/signup"),user);
   }
+  login(loginData:any){
+    return this.http.post(this.baseUrl.concat("/auth/login"),loginData);
+  }
+
+  getUserById(id:any){
+    return this.http.get(this.baseUrl.concat(`users/userId/${id}`))
+  }
+
 }
 
 
