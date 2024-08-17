@@ -15,6 +15,8 @@ import {EditQuizComponent} from "./pages/admin/quizz/edit-quiz/edit-quiz.compone
 import {QuizQuestionComponent} from "./pages/admin/questions/quiz-question/quiz-question.component";
 import {AddQuizQuestionsComponent} from "./pages/admin/questions/add-quiz-questions/add-quiz-questions.component";
 import {EditQuestionComponent} from "./pages/admin/questions/edit-question/edit-question.component";
+import {AdminGuard} from "./core/guard/admin.guard";
+import {UserGuard} from "./core/guard/user.guard";
 
 const routes: Routes = [
   {path: '',
@@ -42,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'admin-dashboard',
-    component: AdminDashboardComponent,
+    component: AdminDashboardComponent,canActivate:[AdminGuard],
     children: [
       {
         path: '',
@@ -90,6 +92,7 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
+    canActivate:[UserGuard],
     pathMatch: "full"
   }
 ];
