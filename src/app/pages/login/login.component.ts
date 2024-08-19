@@ -47,12 +47,14 @@ export class LoginComponent implements OnInit {
      return;
    }
    this.loginService.login(value).subscribe((res:any)=>{
-     this.toastrService.success("Login Successfully!!")
      this.loginService.loginUser(res.token);
+     // this.loginService.loginStatusSubject.next(true);
+     this.toastrService.success("Login Successfully!!")
      this.loginService.currentUser().subscribe((user:any)=>{
        this.loginService.setUser(user);
        this.userNavigation();
      })
+
    },error => {
      this.toastrService.error("Unable to login!");
      this.loginForm.reset();
@@ -60,9 +62,11 @@ export class LoginComponent implements OnInit {
   }
   userNavigation() {
     if (this.loginService.getUserRole() == "ADMIN") {
-      this.router.navigate(["/admin-dashboard"])
+      this.router.navigate(["/admin-dashboard"]);
+      this.loginService.loginStatusSubject.next(true);
     } else if(this.loginService.getUserRole() == "NORMAL"){
       this.router.navigate(['/user-dashboard']);
+      this.loginService.loginStatusSubject.next(true);
     } else{
       this.loginService.logout();
     }

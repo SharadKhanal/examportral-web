@@ -7,22 +7,29 @@
   </a>
   <span>ExamPortal</span>
   <span class="example-spacer"></span>
-  <a
+  <a *ngIf="!isLoggedin"
     [routerLink]="'/login'"
     mat-icon-button class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon">
     Login
   </a>
-  <a
+  <a *ngIf="!isLoggedin"
     [routerLink]="'/signup'"
     mat-icon-button class="example-icon mrr mrl"
     aria-label="Example icon-button with share icon">
     Register
   </a>
-  <a
-    [routerLink]="'/signup'"
+  <button *ngIf="isLoggedin"
+     (click)="logout()"
     mat-icon-button class="example-icon mrr mrl"
     aria-label="Example icon-button with share icon">
     Logout
-  </a>
+  </button>
+  <button *ngIf="isLoggedin"
+          class="ml-5"
+      mat-button>
+      {{ user?.firstname}}
+  </button>
+
+
 </mat-toolbar>
