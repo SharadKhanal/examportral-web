@@ -1,0 +1,29 @@
+<div class="bootstrap-wrapper">
+   <div class="container-fluid mrt">
+     <h2>Available Quizzes</h2>
+     <div class="row mrt" *ngIf="quizzes">
+       <div  *ngFor=" let quiz of quizzes, let i=index" class="col-md-4">
+        <mat-card class="mrb">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"> </div>
+            <mat-card-title>
+              {{quiz?.title}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{quiz?.category?.title}}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="truncate">{{quiz?.description}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary">View </button>
+            <button mat-raised-button color="accent">Start</button>
+            <button mat-button color="accent">Questions:{{quiz?.noOfQuestions}}</button>
+            <button mat-button color="accent">M.M:{{quiz?.maxMarks}}</button>
+          </mat-card-actions>
+        </mat-card>
+       </div>
+     </div>
+   </div>
+</div>

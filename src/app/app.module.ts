@@ -39,6 +39,7 @@ import { SafePipe } from './core/pipe/safe.pipe';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { MatSnackBarModule} from "@angular/material/snack-bar";
 import {authInterceptorProviders} from "./core/interceptor/auth.interceptor";
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {authInterceptorProviders} from "./core/interceptor/auth.interceptor";
     AddQuizQuestionsComponent,
     EditQuestionComponent,
     SafePipe,
-    UserSidebarComponent
+    UserSidebarComponent,
+    LoadQuizComponent
   ],
   imports: [
     BrowserModule,
