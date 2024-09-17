@@ -26,5 +26,9 @@ export class QuizService {
     return this.http.put(this.baseUrlAPI.concat('/quiz/update'),quiz);
   }
 
+  public getQuizByCategory(categoryId:any){
+    return this.http.get(this.baseUrlAPI.concat(`/quiz/getQuizByCategory/${categoryId}`));
+  }
+
 
 }

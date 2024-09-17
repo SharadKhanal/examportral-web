@@ -23,7 +23,7 @@ export class UserSidebarComponent implements OnInit {
   onCategoryQuiz(cId:any){
     this.router.navigate(['/user-dashboard'],{
       queryParams: {
-        cId: cId
+        catId: cId
       }
     })
   }

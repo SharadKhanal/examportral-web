@@ -12,6 +12,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 export class ViewQuizzesComponent implements OnInit {
 
   quizzes:any;
+  status:boolean=false;
   constructor( private router:Router,
                private quizService: QuizService,
                private modalService: NgbModal) { }
@@ -23,6 +24,13 @@ export class ViewQuizzesComponent implements OnInit {
   getAllQuiz(){
     this.quizService.getAllQuiz().subscribe((res:any)=>{
       this.quizzes = res;
+      this.quizzes.forEach((data:any)=>{
+        if(data.status == false){
+          this.status = true;
+        } else{
+          this.status = false;
+        }
+      })
     },error => {
       Swal.fire("Error!","Unable to load quiz data!!");
     })
