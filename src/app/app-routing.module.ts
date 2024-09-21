@@ -18,6 +18,8 @@ import {EditQuestionComponent} from "./pages/admin/questions/edit-question/edit-
 import {AdminGuard} from "./core/guard/admin.guard";
 import {UserGuard} from "./core/guard/user.guard";
 import {LoadQuizComponent} from "./pages/user/load-quiz/load-quiz.component";
+import {InstructionComponent} from "./pages/user/instruction/instruction.component";
+import {StartQuizComponent} from "./pages/user/start-quiz/start-quiz.component";
 
 const routes: Routes = [
   {path: '',
@@ -99,8 +101,17 @@ const routes: Routes = [
         path:':catId',
         component: LoadQuizComponent,
       },
+      {
+        path:'instruction/:qId',
+        component: InstructionComponent,
+      },
     ]
-  }
+  },
+  {
+    path:'start-quiz/:qId',
+    component: StartQuizComponent,
+    canActivate:[UserGuard]
+  },
 ];
 
 @NgModule({

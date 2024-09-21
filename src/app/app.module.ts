@@ -40,6 +40,8 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
 import { MatSnackBarModule} from "@angular/material/snack-bar";
 import {authInterceptorProviders} from "./core/interceptor/auth.interceptor";
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { InstructionComponent } from './pages/user/instruction/instruction.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
 
 
 @NgModule({
@@ -65,7 +67,9 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
     EditQuestionComponent,
     SafePipe,
     UserSidebarComponent,
-    LoadQuizComponent
+    LoadQuizComponent,
+    InstructionComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,

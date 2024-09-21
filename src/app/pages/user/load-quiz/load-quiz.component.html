@@ -3,6 +3,7 @@
      <h2>Available Quizzes</h2>
      <div class="row mrt" *ngIf="quizzes">
        <div  *ngFor=" let quiz of quizzes, let i=index" class="col-md-4">
+         <div *ngIf="quiz?.active === true">
         <mat-card class="mrb">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"> </div>
@@ -18,13 +19,22 @@
           </mat-card-content>
           <mat-card-actions>
             <button mat-raised-button color="primary">View </button>
-            <button mat-raised-button color="accent">Start</button>
+            <button mat-raised-button color="accent"[routerLink]="'/user-dashboard/instruction/'+quiz?.qid">Start</button>
             <button mat-button color="accent">Questions:{{quiz?.noOfQuestions}}</button>
             <button mat-button color="accent">M.M:{{quiz?.maxMarks}}</button>
           </mat-card-actions>
         </mat-card>
+         </div>
+         <div  *ngIf="quiz.active=== false" class="row">
+           <mat-card>
+             <mat-card-content>
+               <mat-card-header>
+                 <h2>Inactive Quiz</h2>
+               </mat-card-header>
+             </mat-card-content>
+           </mat-card>
+         </div>
        </div>
-
        <div  *ngIf="quizzes.length == 0" class="row">
          <mat-card>
            <mat-card-content>
