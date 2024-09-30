@@ -70,12 +70,9 @@ export class AddQuizQuestionsComponent implements OnInit {
     this.questionService.addQuestionToQuiz(this.question).subscribe((res: any) => {
       Swal.fire("Success", "Successfully added question to " + this.quizTitle);
       this.addQuestionForm.reset();
-      this.router.navigate(['/admin-dashboard'])
+      this.router.navigate(['/admin-dashboard']);
     }, error => {
       Swal.fire("Failed", "Unable to add question to " + this.quizTitle);
     })
   }
-
-
-
 }

@@ -29,4 +29,14 @@ export class QuestionService {
   editQuestion(question:Question){
     return this.http.put(this.baseApiUrl.concat('/question/update'),question);
   }
+
+  getQuizQuestion(quizId:any){
+    return this.http.get(this.baseApiUrl.concat(`/question/quiz/${quizId}`));
+  }
+
+  //evalQuestion
+
+  public evalQuestion(questions:any){
+    return this.http.post(this.baseApiUrl.concat("/question/eval-quiz"),questions);
+  }
 }

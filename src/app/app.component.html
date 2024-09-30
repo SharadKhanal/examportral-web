@@ -1,3 +1,15 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<ngx-ui-loader
+  fgsType="ball-spin-clockwise"
+  fgsColor="#00ACC1"
+  pbColor="#00ACC1"
+  [pbThickness]=6
+  [fgsSize]=50
+  textColor="#00ACC1"
+  text="Please wait.."
+></ngx-ui-loader>
+<div ngxUiLoaderBlurred [blur]="10">
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+</div>
+
 
